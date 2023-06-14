@@ -16,38 +16,38 @@ public class TodoListViewTest {
     }
 
     public static void testShowTodoList() {
-        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
-        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
-        TodoListView todoListView = new TodoListView(todoListService);
-
-        todoListService.addTodoList("Learn Java Basic");
-        todoListService.addTodoList("Learn Java OOP");
-        todoListService.addTodoList("Learn Java Standard Classes");
-
-        todoListView.showTodoList();
-    }
-
-    public static void testAddTodoList() {
-        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
-        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
-        TodoListView todoListView = new TodoListView(todoListService);
-
+//        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+//        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+//        TodoListView todoListView = new TodoListView(todoListService);
+//
 //        todoListService.addTodoList("Learn Java Basic");
 //        todoListService.addTodoList("Learn Java OOP");
 //        todoListService.addTodoList("Learn Java Standard Classes");
+//
+//        todoListView.showTodoList();
+    }
 
-        todoListView.addTodoList();
+    public static void testAddTodoList() {
+//        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+//        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+//        TodoListView todoListView = new TodoListView(todoListService);
+//
+////        todoListService.addTodoList("Learn Java Basic");
+////        todoListService.addTodoList("Learn Java OOP");
+////        todoListService.addTodoList("Learn Java Standard Classes");
+//
+//        todoListView.addTodoList();
     }
 
     public static void testRemoveTodoList() {
-        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
-        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
-        TodoListView todoListView = new TodoListView(todoListService);
-
-        todoListService.addTodoList("Learn Java Basic");
-        todoListService.addTodoList("Learn Java OOP");
-        todoListService.addTodoList("Learn Java Standard Classes");
-
-        todoListView.removeTodoList();
+//        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+//        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+//        TodoListView todoListView = new TodoListView(todoListService);
+//
+//        todoListService.addTodoList("Learn Java Basic");
+//        todoListService.addTodoList("Learn Java OOP");
+//        todoListService.addTodoList("Learn Java Standard Classes");
+//
+//        todoListView.removeTodoList();
     }
 }

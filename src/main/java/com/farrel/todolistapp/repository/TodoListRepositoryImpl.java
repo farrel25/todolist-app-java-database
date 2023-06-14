@@ -14,7 +14,7 @@ public class TodoListRepositoryImpl implements TodoListRepository{
 
     private final DataSource dataSource;
 
-    private TodoListRepositoryImpl(DataSource dataSource) {
+    public TodoListRepositoryImpl(DataSource dataSource) {
         this.dataSource=dataSource;
     }
 
@@ -75,7 +75,8 @@ public class TodoListRepositoryImpl implements TodoListRepository{
         String sql = "INSERT INTO todolist (todo) VALUES (?)";
 
         try(
-                Connection connection = DatabaseUtil.getDataSource().getConnection();
+                //Connection connection = DatabaseUtil.getDataSource().getConnection();
+                Connection connection = dataSource.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
         ) {
             preparedStatement.setString(1, todoList.getTodo());
