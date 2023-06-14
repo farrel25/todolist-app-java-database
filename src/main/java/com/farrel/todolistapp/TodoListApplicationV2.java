@@ -10,6 +10,7 @@ import com.farrel.todolistapp.view.TodoListView;
 import javax.sql.DataSource;
 
 public class TodoListApplicationV2 {
+
     public static void main(String[] args) {
         DataSource dataSource = DatabaseUtil.getDataSource();
         TodoListRepository todoListRepository = new TodoListRepositoryImpl(dataSource);

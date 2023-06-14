@@ -70,7 +70,7 @@ public class TodoListView {
 
     public void removeTodoList() {
         System.out.println("\n DELETE TASK");
-        String dataToDel = InputUtil.input("Input task number (type x to cancel)");
+        String dataToDel = InputUtil.input("Input task id number (type x to cancel)");
 
         if (dataToDel.equals("x")) {
             // cancel

@@ -5,7 +5,7 @@ import com.farrel.todolistapp.repository.TodoListRepository;
 
 public class TodoListServiceImpl implements TodoListService{
 
-    private TodoListRepository todoListRepository;
+    private final TodoListRepository todoListRepository;
 
     public TodoListServiceImpl(TodoListRepository todoListRepository) {
         this.todoListRepository = todoListRepository;
@@ -16,11 +16,11 @@ public class TodoListServiceImpl implements TodoListService{
         TodoList[] todoList = todoListRepository.getAll();
 
         System.out.println("\nTODO LIST");
-        for (var i = 0; i < todoList.length; i++) {
-            var num = i + 1;
-            if (todoList[i] != null) {
-                System.out.println(num + ". " + todoList[i].getTodo());
-            }
+
+        int num = 0;
+        for (TodoList todo : todoList) {
+            num++;
+            System.out.println(num + ". id : " + todo.getId() + ", todo : " + todo.getTodo());
         }
     }
 
