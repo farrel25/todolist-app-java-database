@@ -2,6 +2,8 @@ package com.farrel.todolistapp.entity;
 
 public class TodoList {
 
+    private Integer id;
+
     private String todo;
 
     public TodoList() {
@@ -10,6 +12,14 @@ public class TodoList {
 
     public TodoList(String todo) {
         this.todo = todo;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTodo() {
