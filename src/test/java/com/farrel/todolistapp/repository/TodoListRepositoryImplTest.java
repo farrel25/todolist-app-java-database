@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Connection;
-
 public class TodoListRepositoryImplTest {
 
     private HikariDataSource dataSource;
@@ -45,5 +43,18 @@ public class TodoListRepositoryImplTest {
         boolean isRemove1Fail = todoListRepository.remove(idToRemove);
         System.out.println("isRemove1Fail : " + isRemove1Fail);
         Assertions.assertFalse(isRemove1Fail);
+    }
+
+    @Test
+    void testGetAll() {
+        todoListRepository.add(new TodoList("Learn Java OOP"));
+        todoListRepository.add(new TodoList("Learn Java Generic"));
+        todoListRepository.add(new TodoList("Learn Java Database"));
+
+        TodoList[] toDoList = todoListRepository.getAll();
+
+        for (TodoList todo : toDoList) {
+            System.out.println("id : " + todo.getId() + ", todo : " + todo.getTodo());
+        }
     }
 }
