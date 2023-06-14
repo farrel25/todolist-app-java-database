@@ -1,7 +1,6 @@
 package com.farrel.todolistapp.repository;
 
 import com.farrel.todolistapp.entity.TodoList;
-import com.farrel.todolistapp.util.DatabaseUtil;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
