@@ -1,10 +1,22 @@
 package com.farrel.todolistapp.repository;
 
 import com.farrel.todolistapp.entity.TodoList;
+import com.farrel.todolistapp.util.DatabaseUtil;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class TodoListRepositoryImpl implements TodoListRepository{
 
     public TodoList[] data = new TodoList[10];
+
+    private final DataSource dataSource;
+
+    private TodoListRepositoryImpl(DataSource dataSource) {
+        this.dataSource=dataSource;
+    }
 
     @Override
     public TodoList[] getAll() {
@@ -50,18 +62,28 @@ public class TodoListRepositoryImpl implements TodoListRepository{
 
     @Override
     public void add(TodoList todoList) {
+//        // if isFull() is true, resize array 2 times bigger
+//        resizeIfFull();
+//
+//        // add data where the value is null
+//        for (var i = 0; i < data.length; i++) {
+//            if (data[i] == null) {
+//                data[i] = todoList;
+//                break;
+//            }
+//        }
+        String sql = "INSERT INTO todolist (todo) VALUES (?)";
 
-        // if isFull() is true, resize array 2 times bigger
-        resizeIfFull();
+        try(
+                Connection connection = DatabaseUtil.getDataSource().getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
+        ) {
+            preparedStatement.setString(1, todoList.getTodo());
+            preparedStatement.executeUpdate();
 
-        // add data where the value is null
-        for (var i = 0; i < data.length; i++) {
-            if (data[i] == null) {
-                data[i] = todoList;
-                break;
-            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-
     }
 
     @Override
